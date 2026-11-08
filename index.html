@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="stylesheet" href="styles.css?v=1.5.0" />
+</head>
+<body>
+  <div class="backdrop" id="backdrop"></div>
+  <video class="bg-video" id="bgVideo" muted loop autoplay playsinline></video>
+  <div class="scrim" id="scrim"></div>
+  <div class="noise"></div>
+  <div class="particles" id="particles" data-widget="particles"></div>
+
+  <!-- Gear button (hidden until hover, position configurable) -->
+  <div class="gear-wrap pos-tr" id="gearWrap">
+    <button class="icon-btn" id="btnSettings" title="Settings">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 0 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6V21a2 2 0 0 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 0 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H3a2 2 0 0 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 0 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3h.1a1.7 1.7 0 0 0 1-1.6V3a2 2 0 0 1 4 0v.1a1.7 1.7 0 0 0 1 1.6h.1a1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 0 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9v.1a1.7 1.7 0 0 0 1.6 1h.1a2 2 0 0 1 0 4h-.1a1.7 1.7 0 0 0-1.6 1z"/></svg>
+    </button>
+  </div>
+
+  <main class="dashboard" id="dashboard">
+
+    <section class="center">
+      <div class="clock-wrap" id="widgetClock" data-widget="clock">
+        <div class="time" id="time">00:00</div>
+        <div class="date-line" id="dateLine">—</div>
+        <div class="greeting" id="greeting"></div>
+      </div>
+
+      <form class="search-bar" id="searchForm" data-widget="search">
+        <div class="search-box" id="searchBox">
+          <button type="submit" class="search-icon" aria-label="Search">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" class="no-fill"/></svg>
+          </button>
+          <input type="text" id="searchInput" placeholder="Search…" autocomplete="off" spellcheck="false" />
+        </div>
+      </form>
+    </section>
+
+    <section class="pin-zone" data-widget="pins">
+      <div class="pin-grid" id="pinGrid"></div>
+    </section>
+
+    <!-- Dock (taskbar style) -->
+    <section class="dock no-scrollbar" id="dock" data-widget="dock"></section>
+
+    <section class="widgets" id="focusWidget" data-widget="focus">
+      <article class="widget card focus-card">
+        <div class="widget-head">
+          <span class="widget-title">Focus</span>
+          <svg viewBox="0 0 24 24" class="widget-icon"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="timer-display" id="timerDisplay">25:00</div>
+        <div class="timer-controls">
+          <button class="pill-btn" id="timerToggle">Start</button>
+          <button class="pill-btn ghost" id="timerReset">Reset</button>
+        </div>
+        <div class="timer-modes" id="timerModes"></div>
+      </article>
+    </section>
+  </main>
+
+  <!-- ===== Settings panel ===== -->
+  <div class="modal-backdrop" id="settingsBackdrop"></div>
+  <aside class="settings-panel no-scrollbar" id="settingsPanel">
+    <div class="settings-head">
+      <span>Settings</span>
+      <button class="icon-btn" id="settingsClose">✕</button>
+    </div>
+
+    <div class="setting-group gpins">
+      <div class="settings-head small-head"><span>Pins & Tabs</span></div>
+      <button class="pill-btn full" id="cfgAddPin">+ Add pin to current tab</button>
+      <button class="pill-btn ghost full" id="btnManageTabs" style="margin-top:8px">Manage tabs & pins…</button>
+    </div>
+
+    <div class="setting-group">
+      <label class="setting-label">New Tab behavior</label>
+      <div class="seg" id="singleHomeSeg">
+        <button data-sh="on" class="active">Single Home tab</button>
+        <button data-sh="off">Allow multiple</button>
+      </div>
+      <div class="setting-hint">When on, opening a new tab focuses your existing Home tab instead of duplicating.</div>
+    </div>
+
+    <div class="setting-group">
+      <label class="setting-label">Search engine</label>
+      <select class="select-input" id="engineSelect"></select>
+      <button class="pill-btn ghost full" id="btnManageEngines" style="margin-top:8px">Manage engines…</button>
+    </div>
+
+    <div class="setting-group">
+      <label class="setting-label">Clock format</label>
+      <select class="select-input" id="clockFormatSelect"></select>
+    </div>
+    <div class="setting-group">
+      <label class="setting-label">Date format</label>
+      <select class="select-input" id="dateFormatSelect"></select>
+    </div>
+    <div class="setting-group">
+      <label class="setting-label">Clock style</label>
+      <select class="select-input" id="clockStyleSelect"></select>
+    </div>
+    <div class="setting-group">
+      <label class="setting-label">Font</label>
+      <select class="select-input" id="fontSelect"></select>
+      <button class="pill-btn ghost full" id="btnManageFonts" style="margin-top:8px">Manage fonts…</button>
+    </div>
+
+    <div class="setting-group">
+      <label class="setting-label">Wallpaper theme</label>
+      <div class="theme-grid" id="wallpaperGrid"></div>
+    </div>
+
+    <div class="setting-group">
+      <label class="setting-label">Background type</label>
+      <select class="select-input" id="bgTypeSelect">
+        <option value="static">Static (image / default)</option>
+        <option value="live">Live (video)</option>
+      </select>
+      <div class="bg-source" style="margin-top:10px">
+        <button class="pill-btn ghost" id="bgUpload">Upload file</button>
+        <input type="file" id="bgFile" accept="image/*,video/*" hidden />
+        <div class="url-field">
+          <input type="text" id="bgUrl" placeholder="Custom image/video URL (default wallpaper is used otherwise)" />
+          <button class="icon-btn small" id="bgApplyUrl" title="Apply URL">✓</button>
+        </div>
+      </div>
+      <div class="bg-sliders">
+        <label>Blur <input type="range" id="bgBlur" min="0" max="20" step="1" value="0" /></label>
+        <label>Brightness <input type="range" id="bgBright" min="40" max="150" step="5" value="100" /></label>
+        <label>Overlay darken <input type="range" id="bgTint" min="0" max="85" step="1" value="35" /></label>
+      </div>
+      <button class="pill-btn ghost full" id="bgReset">Use default wallpaper</button>
+    </div>
+
+    <div class="setting-group">
+      <label class="setting-label">Search bar</label>
+      <select class="select-input" id="searchStyleSelect"></select>
+      <div class="bg-sliders">
+        <label>Width <input type="range" id="searchWidth" min="30" max="100" step="5" value="70" /></label>
+        <label>Transparency <input type="range" id="searchTrans" min="0" max="90" step="5" value="55" /></label>
+      </div>
+      <div class="seg" id="searchAlign">
+        <button data-align="left">Left</button>
+        <button data-align="center" class="active">Center</button>
+        <button data-align="right">Right</button>
+      </div>
+    </div>
+
+    <div class="setting-group">
+      <label class="setting-label">Particles</label>
+      <div class="seg seg-switch" id="particlesSeg">
+        <button data-particles="on" class="active">On</button>
+        <button data-particles="off">Off</button>
+      </div>
+    </div>
+
+    <div class="setting-group">
+      <label class="setting-label">Focus timer</label>
+      <div class="seg seg-switch" id="focusSeg">
+        <button data-focus="on">Enabled</button>
+        <button data-focus="off" class="active">Disabled</button>
+      </div>
+      <div class="focus-times" id="focusTimesWrap">
+        <label>Focus <input type="number" id="focusDur" min="1" max="180" /></label>
+        <label>Break <input type="number" id="breakDur" min="1" max="60" /></label>
+        <label>Deep <input type="number" id="deepDur" min="1" max="240" /></label>
+      </div>
+    </div>
+
+    <div class="setting-group">
+      <label class="setting-label">Settings panel</label>
+      <div class="setting-hint">Opens from the right via the gear button; closes when you click outside, press ✕ or Esc.</div>
+      <label class="setting-label inline" style="margin-top:12px">Gear button position</label>
+      <select class="select-input" id="gearPosSelect">
+        <option value="lt">Top Left</option>
+        <option value="rt" selected>Top Right</option>
+        <option value="lb">Bottom Left</option>
+        <option value="rb">Bottom Right</option>
+      </select>
+      <div class="gear-preview" id="gearPreview"></div>
+    </div>
+
+    <div class="setting-group">
+      <label class="setting-label">Bookmarks</label>
+      <button class="pill-btn full" id="importBm">Import from Bookmarks Bar</button>
+      <label class="setting-label inline" style="margin-top:12px">After "Import all", cleanup</label>
+      <select class="select-input" id="bmCleanupSel">
+        <option value="none">Keep bookmarks as-is</option>
+        <option value="move">Move all to a backup folder</option>
+        <option value="delete">Delete all bookmarks</option>
+      </select>
+      <button class="pill-btn ghost full" id="importAllBm" style="margin-top:8px">Import ALL bookmarks + backup…</button>
+    </div>
+
+    <div class="setting-group">
+      <label class="setting-label">Configuration</label>
+      <button class="pill-btn ghost full" id="exportCfg">Export config (download)</button>
+      <button class="pill-btn ghost full" id="importCfg" style="margin-top:6px">Import config…</button>
+      <input type="file" id="importCfgFile" accept="application/json,.json" hidden />
+    </div>
+  </aside>
+
+  <!-- ===== Pin editor modal ===== -->
+  <div class="modal-backdrop" id="pinBackdrop"></div>
+  <div class="pin-modal no-scrollbar" id="pinModal">
+    <div class="settings-head">
+      <span id="pinModalTitle">Add pin</span>
+      <button class="icon-btn" id="pinClose">✕</button>
+    </div>
+    <div class="setting-group">
+      <label class="setting-label">Name</label>
+      <input type="text" class="text-input" id="pinName" placeholder="My link" />
+    </div>
+    <div class="setting-group">
+      <label class="setting-label">URL</label>
+      <input type="text" class="text-input" id="pinUrl" placeholder="https://example.com" />
+    </div>
+    <div class="setting-group">
+      <label class="setting-label">Icon</label>
+      <div class="seg" id="pinIconSeg">
+        <button data-icon="auto" class="active">Auto (favicon)</button>
+        <button data-icon="upload">Upload</button>
+      </div>
+      <input type="file" id="pinIconFile" accept="image/*" hidden />
+    </div>
+    <div class="setting-group">
+      <label class="setting-label">Tile size</label>
+      <div class="seg seg-4" id="pinSizeSeg">
+        <button data-size="1">1×1</button>
+        <button data-size="w">2×1</button>
+        <button data-size="h">1×2</button>
+        <button data-size="b">2×2</button>
+      </div>
+    </div>
+    <div class="setting-group">
+      <label class="setting-label">Tile background</label>
+      <div class="seg" id="pinBgSeg">
+        <button data-bg="upload">Upload</button>
+        <button data-bg="url" class="active">Image URL</button>
+        <button data-bg="video">Video URL</button>
+      </div>
+      <input type="file" id="pinBgFile" accept="image/*" hidden />
+      <input type="text" class="text-input" id="pinBgUrl" placeholder="background image or video URL" style="margin-top:8px" />
+    </div>
+    <div class="pin-modal-actions">
+      <button class="pill-btn" id="pinSave">Save</button>
+      <button class="pill-btn ghost" id="pinDelete" hidden>Delete</button>
+    </div>
+  </div>
+
+  <!-- ===== Generic dialog ===== -->
+  <div class="modal-backdrop" id="dialogBackdrop"></div>
+  <div class="pin-modal no-scrollbar dialog" id="dialogBox">
+    <div class="dialog-title" id="dialogTitle"></div>
+    <div class="dialog-msg" id="dialogMsg"></div>
+    <input type="text" class="text-input" id="dialogInput" hidden />
+    <div class="pin-modal-actions dialog-actions" id="dialogActions"></div>
+  </div>
+
+  <!-- ===== Management page (engines / fonts) ===== -->
+  <div class="modal-backdrop" id="manageBackdrop"></div>
+  <div class="manage-page no-scrollbar" id="managePage">
+    <div class="settings-head">
+      <span id="manageTitle">Manage</span>
+      <button class="icon-btn" id="manageClose">✕</button>
+    </div>
+    <div class="seg seg-switch" id="manageTabs">
+      <button data-sec="engines" class="active">Search engines</button>
+      <button data-sec="fonts">Custom fonts</button>
+      <button data-sec="tabs">Tabs & pins</button>
+    </div>
+
+    <div class="manage-section" id="secEngines">
+      <label class="setting-label inline">Your engines — pick a default, rename, edit URL, or delete</label>
+      <div class="tab-manage" id="engineList"></div>
+      <div class="engine-add-row">
+        <input type="text" class="text-input" id="engNewName" placeholder="Engine name (e.g. YouTube)" />
+        <input type="text" class="text-input" id="engNewUrl" placeholder="Search URL with ?q= (e.g. https://youtube.com/results?search_query=)" />
+        <button class="pill-btn ghost full" id="engAdd">Add engine</button>
+      </div>
+      <button class="pill-btn ghost full" id="engReset" style="margin-top:10px">Reset to default engines</button>
+    </div>
+
+    <div class="manage-section" id="secFonts" hidden>
+      <label class="setting-label inline">Upload a font file</label>
+      <button class="pill-btn ghost full" id="fontUploadBtn">Upload font file (ttf / otf / woff / woff2)</button>
+      <input type="file" id="fontUploadFile" accept=".ttf,.otf,.woff,.woff2,font/ttf,font/otf,font/woff,font/woff2" hidden />
+
+      <label class="setting-label inline" style="margin-top:14px">Or add by name + font-family</label>
+      <div class="engine-add-row">
+        <input type="text" class="text-input" id="fontCustomName" placeholder="Font name (e.g. My Font)" />
+        <input type="text" class="text-input" id="fontCustomFamily" placeholder="font-family (e.g. 'My Font', serif)" />
+        <button class="pill-btn ghost full" id="fontCustomSave">Add font</button>
+      </div>
+
+      <label class="setting-label inline" style="margin-top:14px">Your fonts</label>
+      <div class="tab-manage" id="fontList"></div>
+    </div>
+
+    <div class="manage-section" id="secTabs" hidden>
+      <label class="setting-label inline">Tabs</label>
+      <div class="tab-manage" id="tabList"></div>
+      <div class="tab-add-row">
+        <input type="text" class="text-input" id="mtTabName" placeholder="New tab name" />
+        <button class="pill-btn" id="mtAddTab">Add</button>
+      </div>
+      <label class="setting-label inline" style="margin-top:16px">Pins in selected tab</label>
+      <select class="select-input" id="pinsTabSel"></select>
+      <div class="tab-manage" id="pinsList" style="margin-top:8px"></div>
+    </div>
+  </div>
+
+  <!-- ===== Right-click widget config menu ===== -->
+  <div class="widget-menu" id="widgetMenu" hidden></div>
+
+  <script src="app.js?v=1.5.0"></script>
+</body>
+</html>
