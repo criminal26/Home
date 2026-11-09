@@ -1,0 +1,5 @@
+# Machine-local graphify internals (not useful for other agents/machines)
+cache/
+.graphify_python
+.graphify_root
+cost.json

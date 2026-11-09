@@ -1,0 +1,62 @@
+{
+  "app.js": {
+    "mtime": 1794244333.2055848,
+    "seen": 1794264477.245536,
+    "ast_hash": "56e81b082699fa6f813d66d84ba1d568",
+    "semantic_hash": "56e81b082699fa6f813d66d84ba1d568"
+  },
+  "background.js": {
+    "mtime": 1794178427.2603767,
+    "seen": 1794264477.245536,
+    "ast_hash": "bc4486ebd063ce90d9b7afabd992c4c9",
+    "semantic_hash": "bc4486ebd063ce90d9b7afabd992c4c9"
+  },
+  "font-inject.js": {
+    "mtime": 1794175003.2816365,
+    "seen": 1794264477.245536,
+    "ast_hash": "cc77d2cd0d9e5589e5b46ff6e8fe34d9",
+    "semantic_hash": "cc77d2cd0d9e5589e5b46ff6e8fe34d9"
+  },
+  "manifest.json": {
+    "mtime": 1794244395.1270382,
+    "seen": 1794264477.245536,
+    "ast_hash": "cbfd56fc664f5512ee37396b721de8c2",
+    "semantic_hash": "cbfd56fc664f5512ee37396b721de8c2"
+  },
+  "README.md": {
+    "mtime": 1794243800.600464,
+    "seen": 1794264477.245536,
+    "ast_hash": "1ae52bd3c884146bbb09c4810945dd9d",
+    "semantic_hash": "1ae52bd3c884146bbb09c4810945dd9d"
+  },
+  "index.html": {
+    "mtime": 1794244395.201717,
+    "seen": 1794264477.245536,
+    "ast_hash": "fc714ffc23f98da6360d0ccaeb7f4a42",
+    "semantic_hash": "fc714ffc23f98da6360d0ccaeb7f4a42"
+  },
+  "icons/icon128.png": {
+    "mtime": 1794162449.1916735,
+    "seen": 1794264477.245536,
+    "ast_hash": "ec00b0ca70c0680d7c76bfeaaabdaeea",
+    "semantic_hash": "ec00b0ca70c0680d7c76bfeaaabdaeea"
+  },
+  "icons/icon16.png": {
+    "mtime": 1794162449.1746376,
+    "seen": 1794264477.245536,
+    "ast_hash": "a61b1bdafbc595b2fc1617f4d3cd1e1c",
+    "semantic_hash": "a61b1bdafbc595b2fc1617f4d3cd1e1c"
+  },
+  "icons/icon32.png": {
+    "mtime": 1794162449.1834538,
+    "seen": 1794264477.245536,
+    "ast_hash": "63b0187abc6f80cc5a69b3f44470e14a",
+    "semantic_hash": "63b0187abc6f80cc5a69b3f44470e14a"
+  },
+  "icons/icon48.png": {
+    "mtime": 1794162449.1876402,
+    "seen": 1794264477.245536,
+    "ast_hash": "03c46b2c0bc790bdc13c34cda000a19e",
+    "semantic_hash": "03c46b2c0bc790bdc13c34cda000a19e"
+  }
+}
