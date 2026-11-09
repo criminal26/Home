@@ -4,9 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home</title>
-  <link rel="stylesheet" href="styles.css?v=1.5.0" />
+  <link rel="stylesheet" href="styles.css?v=1.7.18" />
 </head>
 <body>
+  <svg height="0" width="0" style="position:absolute" aria-hidden="true">
+    <filter id="handDrawnNoise">
+      <feTurbulence result="noise" numOctaves="8" baseFrequency="0.1" type="fractalNoise" />
+      <feDisplacementMap yChannelSelector="G" xChannelSelector="R" scale="3" in2="noise" in="SourceGraphic" />
+    </filter>
+  </svg>
   <div class="backdrop" id="backdrop"></div>
   <video class="bg-video" id="bgVideo" muted loop autoplay playsinline></video>
   <div class="scrim" id="scrim"></div>
@@ -22,11 +28,18 @@
 
   <main class="dashboard" id="dashboard">
 
+    <section class="widgets weather-corner" id="weatherWidget" data-widget="weather" style="display:none">
+      <div class="weather-main" id="weatherMain"></div>
+      <div class="weather-alert" id="weatherAlert"></div>
+    </section>
+
     <section class="center">
-      <div class="clock-wrap" id="widgetClock" data-widget="clock">
-        <div class="time" id="time">00:00</div>
-        <div class="date-line" id="dateLine">—</div>
-        <div class="greeting" id="greeting"></div>
+      <div class="center-main">
+        <div class="clock-wrap" id="widgetClock" data-widget="clock">
+          <div class="time" id="time">00:00</div>
+          <div class="date-line" id="dateLine">—</div>
+          <div class="greeting" id="greeting"></div>
+        </div>
       </div>
 
       <form class="search-bar" id="searchForm" data-widget="search">
@@ -37,6 +50,7 @@
           <input type="text" id="searchInput" placeholder="Search…" autocomplete="off" spellcheck="false" />
         </div>
       </form>
+
     </section>
 
     <section class="pin-zone" data-widget="pins">
@@ -46,18 +60,50 @@
     <!-- Dock (taskbar style) -->
     <section class="dock no-scrollbar" id="dock" data-widget="dock"></section>
 
-    <section class="widgets" id="focusWidget" data-widget="focus">
-      <article class="widget card focus-card">
+    <div class="widgets-grid">
+      <section class="widgets" id="focusWidget" data-widget="focus">
+        <article class="widget card focus-card">
+          <div class="widget-head">
+            <span class="widget-title">Focus</span>
+            <svg viewBox="0 0 24 24" class="widget-icon"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="timer-display" id="timerDisplay">25:00</div>
+          <div class="timer-controls">
+            <button class="pill-btn" id="timerToggle">Start</button>
+            <button class="pill-btn ghost" id="timerReset">Reset</button>
+          </div>
+          <div class="timer-modes" id="timerModes"></div>
+        </article>
+      </section>
+
+      <section class="widgets todo-corner" id="todoWidget" data-widget="todo">
+        <article class="widget card todo-card">
+          <div class="widget-head">
+            <span class="widget-title">Todo</span>
+          </div>
+          <div class="todo-list" id="todoList"></div>
+          <div class="todo-add">
+            <input type="text" id="todoInput" placeholder="Add a task…" autocomplete="off" spellcheck="false" />
+            <button class="pill-btn ghost" id="todoAddBtn">Add</button>
+          </div>
+        </article>
+      </section>
+    </div>
+
+    <section class="widgets quote-bar" id="quoteWidget" data-widget="quote" style="display:none">
+      <article class="widget card quote-card">
         <div class="widget-head">
-          <span class="widget-title">Focus</span>
-          <svg viewBox="0 0 24 24" class="widget-icon"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg>
+          <span class="widget-title">Quote</span>
+          <button class="btn-link" id="quoteRefresh" title="New quote">↻</button>
         </div>
-        <div class="timer-display" id="timerDisplay">25:00</div>
-        <div class="timer-controls">
-          <button class="pill-btn" id="timerToggle">Start</button>
-          <button class="pill-btn ghost" id="timerReset">Reset</button>
+        <div class="quote-text" id="quoteText"></div>
+        <div class="quote-author" id="quoteAuthor"></div>
+        <div class="quote-actions">
+          <button class="btn-link" id="quoteNext">Next</button>
+          <button class="btn-link" id="quoteSave">Save</button>
+          <button class="btn-link" id="quoteSavedList">Saved (<span id="savedCount">0</span>)</button>
+          <button class="btn-link" id="quoteCopy">Copy</button>
         </div>
-        <div class="timer-modes" id="timerModes"></div>
       </article>
     </section>
   </main>
@@ -66,7 +112,7 @@
   <div class="modal-backdrop" id="settingsBackdrop"></div>
   <aside class="settings-panel no-scrollbar" id="settingsPanel">
     <div class="settings-head">
-      <span>Settings</span>
+      <span>Settings <em class="ver">v1.7.18</em></span>
       <button class="icon-btn" id="settingsClose">✕</button>
     </div>
 
@@ -74,6 +120,11 @@
       <div class="settings-head small-head"><span>Pins & Tabs</span></div>
       <button class="pill-btn full" id="cfgAddPin">+ Add pin to current tab</button>
       <button class="pill-btn ghost full" id="btnManageTabs" style="margin-top:8px">Manage tabs & pins…</button>
+      <label class="setting-label inline" style="margin-top:12px">Tile width (columns per row)</label>
+      <div class="bg-sliders">
+        <label>Narrow <input type="range" id="pinColsSlider" min="4" max="20" step="1" value="10" /></label>
+      </div>
+      <div class="setting-hint">More columns = smaller tiles. Tile sizes (1×1 / 2×1 / 1×2 / 2×2) work on any layout.</div>
     </div>
 
     <div class="setting-group">
@@ -107,10 +158,16 @@
       <label class="setting-label">Font</label>
       <select class="select-input" id="fontSelect"></select>
       <button class="pill-btn ghost full" id="btnManageFonts" style="margin-top:8px">Manage fonts…</button>
+      <label class="setting-label inline" style="margin-top:12px">Apply to all websites</label>
+      <div class="seg seg-switch" id="fontEverywhereSeg">
+        <button data-fe="on">Enabled</button>
+        <button data-fe="off" class="active">Disabled</button>
+      </div>
+      <div class="setting-hint">When enabled, the selected font is forced on every website (adds all-site access).</div>
     </div>
 
     <div class="setting-group">
-      <label class="setting-label">Wallpaper theme</label>
+      <label class="setting-label">Wallpaper (auto theme)</label>
       <div class="theme-grid" id="wallpaperGrid"></div>
     </div>
 
@@ -139,6 +196,14 @@
     <div class="setting-group">
       <label class="setting-label">Search bar</label>
       <select class="select-input" id="searchStyleSelect"></select>
+      <label class="setting-label inline" style="margin-top:12px">Placeholder text</label>
+      <input type="text" class="text-input" id="searchPlaceholder" placeholder="Search…" maxlength="80" />
+      <label class="setting-label inline" style="margin-top:12px">Typed text alignment</label>
+      <div class="seg" id="searchTextAlignSeg">
+        <button data-align="left" class="active">Left</button>
+        <button data-align="center">Center</button>
+        <button data-align="right">Right</button>
+      </div>
       <div class="bg-sliders">
         <label>Width <input type="range" id="searchWidth" min="30" max="100" step="5" value="70" /></label>
         <label>Transparency <input type="range" id="searchTrans" min="0" max="90" step="5" value="55" /></label>
@@ -147,6 +212,11 @@
         <button data-align="left">Left</button>
         <button data-align="center" class="active">Center</button>
         <button data-align="right">Right</button>
+      </div>
+      <label class="setting-label inline" style="margin-top:12px">Open results in</label>
+      <div class="seg" id="searchTargetSeg">
+        <button data-t="new" class="active">New tab</button>
+        <button data-t="current">Current tab</button>
       </div>
     </div>
 
@@ -185,15 +255,87 @@
     </div>
 
     <div class="setting-group">
+      <label class="setting-label">Weather</label>
+      <div class="seg seg-switch" id="weatherSeg">
+        <button data-w="on">Enabled</button>
+        <button data-w="off" class="active">Disabled</button>
+      </div>
+      <div class="engine-add-row" style="margin-top:8px">
+        <input type="text" class="text-input" id="weatherCity" placeholder="City (e.g. Multan)" />
+        <button class="pill-btn ghost full" id="weatherSave">Set city</button>
+      </div>
+      <label class="setting-label inline" style="margin-top:10px">Units</label>
+      <div class="seg" id="weatherUnitsSeg">
+        <button data-u="c" class="active">°C</button>
+        <button data-u="f">°F</button>
+      </div>
+      <label class="setting-label inline" style="margin-top:12px">Position</label>
+      <div class="gear-slider-row">
+        <span class="gs-axis">Left</span>
+        <input type="range" id="weatherXSlider" min="0" max="100" step="1" value="2" />
+        <span class="gs-axis">Right</span>
+      </div>
+      <div class="gear-slider-row">
+        <span class="gs-axis">Top</span>
+        <input type="range" id="weatherYSlider" min="0" max="100" step="1" value="6" />
+        <span class="gs-axis">Bottom</span>
+      </div>
+      <label class="setting-label inline" style="margin-top:12px">Size</label>
+      <div class="gear-slider-row">
+        <span class="gs-axis">Width</span>
+        <input type="range" id="weatherWSlider" min="140" max="420" step="10" value="280" />
+        <span class="gs-axis">+</span>
+      </div>
+      <div class="gear-slider-row">
+        <span class="gs-axis">Height</span>
+        <input type="range" id="weatherHSlider" min="80" max="280" step="10" value="140" />
+        <span class="gs-axis">+</span>
+      </div>
+      <div class="setting-hint">Powered by weatherapi.com (free plan). Data is cached for 30 minutes to stay within free call limits.</div>
+    </div>
+
+    <div class="setting-group">
+      <label class="setting-label">Daily quote</label>
+      <div class="seg seg-switch" id="quoteSeg">
+        <button data-q="on">Enabled</button>
+        <button data-q="off" class="active">Disabled</button>
+      </div>
+      <div class="setting-hint">Random quote from a free public API (dummyjson.com), with an offline fallback.</div>
+    </div>
+
+    <div class="setting-group">
+      <label class="setting-label">Todo list</label>
+      <div class="seg seg-switch" id="todoSeg">
+        <button data-todo="on">Enabled</button>
+        <button data-todo="off" class="active">Disabled</button>
+      </div>
+      <label class="setting-label inline" style="margin-top:10px">Position</label>
+      <div class="gear-slider-row">
+        <span class="gs-axis">Left</span>
+        <input type="range" id="todoXSlider" min="0" max="100" step="1" value="72" />
+        <span class="gs-axis">Right</span>
+      </div>
+      <div class="gear-slider-row">
+        <span class="gs-axis">Top</span>
+        <input type="range" id="todoYSlider" min="0" max="100" step="1" value="40" />
+        <span class="gs-axis">Bottom</span>
+      </div>
+      <div class="setting-hint">Notebook-style task list (off by default). Move it anywhere with the sliders.</div>
+    </div>
+
+    <div class="setting-group">
+      <label class="setting-label">Homepage density</label>
+      <label class="setting-label inline">Compactness</label>
+      <div class="bg-sliders">
+        <label>Compact <input type="range" id="compactSlider" min="0" max="100" step="5" value="50" /></label>
+      </div>
+      <div class="setting-hint">0 = spacious · 100 = most compact (pins, clock, spacing).</div>
+    </div>
+
+    <div class="setting-group">
       <label class="setting-label">Bookmarks</label>
       <button class="pill-btn full" id="importBm">Import from Bookmarks Bar</button>
-      <label class="setting-label inline" style="margin-top:12px">After "Import all", cleanup</label>
-      <select class="select-input" id="bmCleanupSel">
-        <option value="none">Keep bookmarks as-is</option>
-        <option value="move">Move all to a backup folder</option>
-        <option value="delete">Delete all bookmarks</option>
-      </select>
-      <button class="pill-btn ghost full" id="importAllBm" style="margin-top:8px">Import ALL bookmarks + backup…</button>
+      <div class="setting-hint">On first launch your bookmarks are imported automatically. Use the button above to re-import at any time (new pins only, duplicates are skipped).</div>
     </div>
 
     <div class="setting-group">
@@ -261,6 +403,19 @@
     <div class="pin-modal-actions dialog-actions" id="dialogActions"></div>
   </div>
 
+  <!-- ===== Saved quotes modal ===== -->
+  <div class="modal-backdrop" id="savedBackdrop"></div>
+  <div class="pin-modal no-scrollbar" id="savedModal">
+    <div class="settings-head">
+      <span>Saved quotes (<span id="savedModalCount">0</span>)</span>
+      <button class="icon-btn" id="savedClose">✕</button>
+    </div>
+    <div class="saved-list" id="savedList"></div>
+    <div class="pin-modal-actions">
+      <button class="pill-btn ghost full" id="savedDownload">Download as JSON</button>
+    </div>
+  </div>
+
   <!-- ===== Management page (engines / fonts) ===== -->
   <div class="modal-backdrop" id="manageBackdrop"></div>
   <div class="manage-page no-scrollbar" id="managePage">
@@ -279,7 +434,7 @@
       <div class="tab-manage" id="engineList"></div>
       <div class="engine-add-row">
         <input type="text" class="text-input" id="engNewName" placeholder="Engine name (e.g. YouTube)" />
-        <input type="text" class="text-input" id="engNewUrl" placeholder="Search URL with ?q= (e.g. https://youtube.com/results?search_query=)" />
+        <input type="text" class="text-input" id="engNewUrl" placeholder="Search URL with ?q= — bare domain works too (e.g. youtube.com/results?search_query=)" />
         <button class="pill-btn ghost full" id="engAdd">Add engine</button>
       </div>
       <button class="pill-btn ghost full" id="engReset" style="margin-top:10px">Reset to default engines</button>
@@ -317,6 +472,6 @@
   <!-- ===== Right-click widget config menu ===== -->
   <div class="widget-menu" id="widgetMenu" hidden></div>
 
-  <script src="app.js?v=1.5.0"></script>
+  <script src="app.js?v=1.7.18"></script>
 </body>
 </html>

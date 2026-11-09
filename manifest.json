@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Home",
-  "version": "1.5.0",
+  "version": "1.7.18",
   "description": "A customizable new-tab start page for developers and creatives.",
   "chrome_url_overrides": {
     "newtab": "index.html"
@@ -10,6 +10,17 @@
     "storage",
     "bookmarks",
     "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["font-inject.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
   ],
   "background": {
     "service_worker": "background.js"

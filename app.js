@@ -60,7 +60,7 @@
     { id: "mono", label: "Mono" },
     { id: "serif", label: "Serif" },
     { id: "glow", label: "Glow" },
-    { id: "grad", label: "Gradient", css: "background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;" },
+    { id: "grad", label: "Gradient", css: "background-image:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;" },
     { id: "outline", label: "Outline", css: "-webkit-text-stroke:1.2px var(--accent2);color:transparent;" },
     { id: "neon", label: "Neon", css: "text-shadow:0 0 8px var(--accent2),0 0 28px var(--glow),0 0 60px var(--glow);" },
     { id: "shadow", label: "Soft shadow", css: "text-shadow:0 6px 30px rgba(0,0,0,.55);" },
@@ -69,17 +69,17 @@
     { id: "serifit", label: "Serif italic", css: "font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weight:500;" },
     { id: "type", label: "Typewriter", css: "font-family:'Courier New',monospace;letter-spacing:0;font-weight:600;" },
     { id: "retro", label: "Retro 3D", css: "color:#fff;text-shadow:0 1px 0 #b3a6ff,0 2px 0 #a294ff,0 3px 0 #9181ff,0 4px 0 #7f6dff,0 5px 14px rgba(0,0,0,.4);" },
-    { id: "fire", label: "Fire", css: "background:linear-gradient(180deg,#ffe29f,#ffa751,#ff5252);-webkit-background-clip:text;background-clip:text;color:transparent;" },
-    { id: "ocean", label: "Ocean", css: "background:linear-gradient(180deg,#a5f3fc,#38bdf8,#2563eb);-webkit-background-clip:text;background-clip:text;color:transparent;" },
-    { id: "bloom", label: "Bloom", css: "background:linear-gradient(180deg,#f0abfc,#c084fc,#7c3aed);-webkit-background-clip:text;background-clip:text;color:transparent;" },
-    { id: "gold", label: "Gold", css: "background:linear-gradient(180deg,#fde68a,#f59e0b,#b45309);-webkit-background-clip:text;background-clip:text;color:transparent;" },
-    { id: "ice", label: "Ice", css: "background:linear-gradient(180deg,#e0f2fe,#bae6fd,#7dd3fc);-webkit-background-clip:text;background-clip:text;color:transparent;" },
-    { id: "mint", label: "Mint", css: "background:linear-gradient(180deg,#d1fae5,#6ee7b7,#059669);-webkit-background-clip:text;background-clip:text;color:transparent;" },
+    { id: "fire", label: "Fire", css: "background-image:linear-gradient(180deg,#ffe29f,#ffa751,#ff5252);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;" },
+    { id: "ocean", label: "Ocean", css: "background-image:linear-gradient(180deg,#a5f3fc,#38bdf8,#2563eb);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;" },
+    { id: "bloom", label: "Bloom", css: "background-image:linear-gradient(180deg,#f0abfc,#c084fc,#7c3aed);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;" },
+    { id: "gold", label: "Gold", css: "background-image:linear-gradient(180deg,#fde68a,#f59e0b,#b45309);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;" },
+    { id: "ice", label: "Ice", css: "background-image:linear-gradient(180deg,#e0f2fe,#bae6fd,#7dd3fc);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;" },
+    { id: "mint", label: "Mint", css: "background-image:linear-gradient(180deg,#d1fae5,#6ee7b7,#059669);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;" },
     { id: "punch", label: "Chunky", css: "font-weight:900;letter-spacing:-1.5px;text-shadow:0 4px 0 rgba(0,0,0,.35);" },
     { id: "track", label: "Tracking", css: "letter-spacing:12px;font-weight:300;" },
     { id: "glowring", label: "Glow ring", css: "text-shadow:0 0 6px var(--accent),0 0 18px var(--accent);" },
-    { id: "engrave", label: "Engraved", css: "color:#0b0e1a;text-shadow:0 1px 0 rgba(255,255,255,.18),0 -1px 0 rgba(0,0,0,.9);" },
-    { id: "pop", label: "Duo", css: "background:linear-gradient(90deg,var(--accent3) 45%,var(--accent2) 55%);-webkit-background-clip:text;background-clip:text;color:transparent;" },
+    { id: "engrave", label: "Engraved", css: "color:#aab3d0;text-shadow:0 1px 0 rgba(0,0,0,.6),0 -1px 0 rgba(255,255,255,.06);" },
+    { id: "pop", label: "Duo", css: "background-image:linear-gradient(90deg,var(--accent3) 45%,var(--accent2) 55%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;" },
   ];
 
   const FONTS = [
@@ -146,7 +146,7 @@
     { id: "sunken", label: "Sunken", css: "display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:14px;background:rgba(0,0,0,.28);border:none;box-shadow:inset 0 2px 8px rgba(0,0,0,.4);" },
     { id: "chrome", label: "Chrome", css: "display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.06));border:1px solid rgba(255,255,255,.25);" },
     { id: "neonframe", label: "Neon frame", css: "display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:16px;background:rgba(12,16,30,.5);border:1px solid var(--accent2);box-shadow:0 0 12px rgba(34,211,238,.35);" },
-    { id: "paper", label: "Paper", css: "display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:10px;background:rgba(233,228,216,.75);border:none;color:#2a2a2a;" },
+    { id: "paper", label: "Paper", css: "display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:10px;background:rgba(233,228,216,.75);border:none;color:#2a2a2a;", inputColor: "#2a2a2a" },
     { id: "darkglass", label: "Dark glass", css: "display:flex;align-items:center;gap:12px;padding:12px 20px;border-radius:100px;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.08);" },
     { id: "bubble", label: "Bubble", css: "display:flex;align-items:center;gap:12px;padding:12px 20px;border-radius:20px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);" },
     { id: "honey", label: "Honey", css: "display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:14px;background:linear-gradient(135deg,rgba(251,191,36,.28),rgba(249,115,22,.22));border:none;" },
@@ -154,6 +154,8 @@
     { id: "sleek", label: "Sleek", css: "display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:10px;background:rgba(12,16,30,.6);border:none;border-bottom:2px solid rgba(255,255,255,.08);" },
     { id: "blue", label: "Blue haze", css: "display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:16px;background:linear-gradient(135deg,rgba(37,99,235,.3),rgba(14,165,233,.2));border:none;" },
   ];
+
+
 
   const DAYS = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
   const DAYS_S = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
@@ -188,13 +190,35 @@
       dock: { visible: true, opacity: 100 },
       focus: { visible: true, opacity: 100 },
       particles: { visible: false, opacity: 100 },
+      weather: { visible: true, opacity: 100 },
+      quote: { visible: true, opacity: 100 },
+      todo: { visible: false, opacity: 100 },
     },
     searchStyle: "capsule",
     searchWidth: 70,
     searchAlign: "center",
     searchTrans: 55,
-    bmCleanup: "none",
+    searchPlaceholder: "Search…",
+    searchTextAlign: "left",
+    pinCols: 10,
+    todo: [],
+    todoDefaulted: false,
+    todoX: 72,
+    todoY: 40,
     onboarded: false,
+    fontEverywhere: true,
+    searchTarget: "new",
+    weatherEnabled: false,
+    weatherCity: "London",
+    weatherUnits: "c",
+    weatherCache: null,
+    quoteEnabled: false,
+    compact: 50,
+    savedQuotes: [],
+    weatherX: 2,
+    weatherY: 6,
+    weatherW: 280,
+    weatherH: 140,
   };
 
   const timer = { min: 25, running: false, remaining: 25 * 60, interval: null };
@@ -243,6 +267,8 @@
       clock: { visible: true, opacity: 100 }, search: { visible: true, opacity: 100 },
       pins: { visible: true, opacity: 100 }, dock: { visible: true, opacity: 100 },
       focus: { visible: true, opacity: 100 }, particles: { visible: false, opacity: 100 },
+      weather: { visible: true, opacity: 100 }, quote: { visible: true, opacity: 100 },
+      todo: { visible: false, opacity: 100 },
     };
     if (!state.widgets || typeof state.widgets !== "object") state.widgets = {};
     for (const k in DEFAULT_WIDGETS) {
@@ -251,6 +277,11 @@
         if (typeof state.widgets[k].visible !== "boolean") state.widgets[k].visible = DEFAULT_WIDGETS[k].visible;
         if (typeof state.widgets[k].opacity !== "number") state.widgets[k].opacity = DEFAULT_WIDGETS[k].opacity;
       }
+    }
+    // One-time migration: Todo is hidden by default (even for older configs).
+    if (!state.todoDefaulted) {
+      if (state.widgets.todo) state.widgets.todo.visible = false;
+      state.todoDefaulted = true;
     }
     if (!state.panelPos) state.panelPos = "right";
     if (typeof state.gearX !== "number" || typeof state.gearY !== "number") {
@@ -261,8 +292,33 @@
     state.gearX = clamp(0, 100, +state.gearX || 0);
     state.gearY = clamp(0, 100, +state.gearY || 0);
     if (!state.searchStyle) state.searchStyle = "capsule";
-    if (!state.bmCleanup) state.bmCleanup = "none";
+    if (typeof state.searchPlaceholder !== "string" || !state.searchPlaceholder) state.searchPlaceholder = "Search…";
+    if (!["left", "center", "right"].includes(state.searchTextAlign)) state.searchTextAlign = "left";
+    if (typeof state.pinCols !== "number" || !(state.pinCols >= 4 && state.pinCols <= 20)) state.pinCols = 10;
+    if (!Array.isArray(state.todo)) state.todo = [];
+    if (typeof state.todoDefaulted !== "boolean") state.todoDefaulted = false;
+    if (typeof state.todoX !== "number") state.todoX = 72;
+    if (typeof state.todoY !== "number") state.todoY = 40;
+    state.todoX = clamp(0, 100, state.todoX);
+    state.todoY = clamp(0, 100, state.todoY);
     if (typeof state.onboarded !== "boolean") state.onboarded = false;
+    if (typeof state.fontEverywhere !== "boolean") state.fontEverywhere = true;
+    if (!state.searchTarget) state.searchTarget = "new";
+    if (typeof state.weatherEnabled !== "boolean") state.weatherEnabled = false;
+    if (!state.weatherCity) state.weatherCity = "London";
+    if (!state.weatherUnits) state.weatherUnits = "c";
+    if (typeof state.quoteEnabled !== "boolean") state.quoteEnabled = false;
+    if (typeof state.compact !== "number") state.compact = 50;
+    state.compact = clamp(0, 100, state.compact);
+    if (typeof state.weatherX !== "number") state.weatherX = 2;
+    if (typeof state.weatherY !== "number") state.weatherY = 6;
+    state.weatherX = clamp(0, 100, state.weatherX);
+    state.weatherY = clamp(0, 100, state.weatherY);
+    if (typeof state.weatherW !== "number") state.weatherW = 280;
+    if (typeof state.weatherH !== "number") state.weatherH = 140;
+    state.weatherW = clamp(140, 420, state.weatherW);
+    state.weatherH = clamp(80, 280, state.weatherH);
+    if (!Array.isArray(state.savedQuotes)) state.savedQuotes = [];
   }
 
   function loadStateSync() {
@@ -432,6 +488,7 @@
     $("#fontSelect").value = state.font;
     $("#searchStyleSelect").value = state.searchStyle;
     $("#engineSelect").value = state.defaultEngine;
+    updateEnhancedSelects();
   }
 
   function applyClockStyle() {
@@ -458,10 +515,38 @@
     });
     st.textContent = css;
   }
+  function currentFontFamilySelected() {
+    const f = allFonts().find((x) => x.id === state.font) || FONTS[0];
+    return fontFamilyOf(f);
+  }
+  function customFacesCSS() {
+    let css = "";
+    state.customFonts.forEach((f) => {
+      if (f.src) {
+        const fmt = f.format || "woff2";
+        const name = String(f.label).replace(/["\\]/g, "");
+        css += `@font-face{font-family:"${name}";src:url(${f.src}) format("${fmt}");font-display:swap;}`;
+      }
+    });
+    return css;
+  }
+  function syncFontOverride() {
+    if (!chrome.storage || !chrome.storage.local) return;
+    const payload = { enabled: !!state.fontEverywhere, family: currentFontFamilySelected(), face: customFacesCSS() };
+    chrome.storage.local.set({ fontOverride: payload }).catch(() => {});
+  }
   function applyFont() {
     injectCustomFonts();
     const f = allFonts().find((x) => x.id === state.font) || FONTS[0];
     document.documentElement.style.setProperty("--font", fontFamilyOf(f));
+    // Force the selected font onto existing todo rows/search input too.
+    const css = selectedFontCss();
+    $$(".todo-row").forEach((r) => { r.style.fontFamily = css; });
+    const ti = $("#todoInput");
+    if (ti) ti.style.fontFamily = css;
+    const si = $("#searchInput");
+    if (si) si.style.fontFamily = css;
+    syncFontOverride();
   }
   function applySearchStyle() {
     const box = $("#searchBox");
@@ -469,15 +554,26 @@
     if (st.css) {
       box.className = "search-box";
       box.style.cssText = st.css;
+      const inp = $("#searchInput");
+      if (st.inputColor) inp.style.color = st.inputColor;
+      else inp.style.color = "";
     } else {
       box.className = "search-box style-" + state.searchStyle;
       box.style.cssText = "";
       box.style.background = `rgba(12,16,30,${(100 - state.searchTrans) / 100})`;
+      $("#searchInput").style.color = "";
     }
     const bar = $("#searchForm");
     bar.classList.remove("align-left", "align-center", "align-right");
     bar.classList.add("align-" + state.searchAlign);
     bar.style.width = state.searchWidth + "%";
+    $("#searchInput").placeholder = state.searchPlaceholder || "Search…";
+    $("#searchInput").style.textAlign = state.searchTextAlign || "left";
+  }
+
+  function applyPinCols() {
+    const grid = $("#pinGrid");
+    if (grid) grid.style.setProperty("--pin-cols", String(Math.max(4, Math.min(20, Math.round(state.pinCols || 10)))));
   }
 
   /* ---------- Particles ---------- */
@@ -500,15 +596,57 @@
   /* ---------- Search ---------- */
   function doSearch(q) {
     q = (q || "").trim();
+    const inp = $("#searchInput");
+    if (inp) inp.value = ""; // clear after search
     if (!q) return;
     const engine = state.engines.find((e) => e.id === state.defaultEngine) || state.engines[0];
-    window.open(engine.url + encodeURIComponent(q), "_blank", "noopener");
+    const base = normalizeEngineUrl(engine.url) || engine.url;
+    const url = base + encodeURIComponent(q);
+    if (state.searchTarget === "current") { try { location.href = url; } catch (e) {} }
+    else window.open(url, "_blank", "noopener");
   }
   const MAX_ENGINES = 30;
   function engineId() { return "eng" + Date.now() + Math.floor(Math.random() * 1000); }
-  function validEngineUrl(u) {
-    try { const p = new URL(u); return p.protocol === "http:" || p.protocol === "https:"; }
-    catch (e) { return false; }
+  // Accept bare domains ("youtube.com"), with or without www / scheme.
+  function normalizeEngineUrl(u) {
+    u = (u || "").trim();
+    if (!u) return "";
+    if (!/^https?:\/\//i.test(u)) u = "https://" + u;
+    try {
+      const p = new URL(u);
+      if (p.protocol !== "http:" && p.protocol !== "https:") return "";
+      const h = p.hostname;
+      if (!h || /[\s]/.test(h)) return "";
+      const isIp = /^\d{1,3}(\.\d{1,3}){3}$/.test(h);
+      if (h !== "localhost" && !isIp && !/\.[a-zA-Z]{2,}$/.test(h)) return "";
+      const labels = h.split(".");
+      let href = p.href;
+      if (labels.length === 2 && labels[0].toLowerCase() !== "www") {
+        href = href.replace(h, "www." + h);
+      }
+      return href;
+    } catch (e) {}
+    return "";
+  }
+  function validEngineUrl(u) { return !!normalizeEngineUrl(u); }
+
+  // For pins: also auto-add https://www. to bare domains (youtube.com → https://www.youtube.com).
+  function normalizePinUrl(u) {
+    u = (u || "").trim();
+    if (!u) return "";
+    const m = u.match(/^([a-zA-Z][a-zA-Z0-9+.-]*):/);
+    if (m && !/^https?$/i.test(m[1])) return "";
+    if (!/^https?:\/\//i.test(u)) u = "https://" + u;
+    try {
+      const p = new URL(u);
+      const labels = p.hostname.split(".");
+      let href = p.href;
+      if (labels.length === 2 && labels[0].toLowerCase() !== "www") {
+        href = href.replace(p.hostname, "www." + p.hostname);
+      }
+      return href;
+    } catch (e) {}
+    return "";
   }
   function renderEngineManager() {
     const wrap = $("#engineList");
@@ -520,7 +658,7 @@
       row.innerHTML = `
         <button class="btn-link eng-default" title="Make this the default engine">${e.id === state.defaultEngine ? "★ Default" : "☆ Set default"}</button>
         <input type="text" class="tm-name" value="${esc(e.name)}" placeholder="Name" title="Engine name" />
-        <input type="text" class="tm-url" value="${esc(e.url)}" placeholder="https://…/?q=" title="Search URL" />
+        <input type="text" class="tm-url" value="${esc(e.url || "")}" placeholder="youtube.com/results?search_query= (https optional)" title="Search URL" />
         <button class="tab-close eng-del" title="Delete engine">✕</button>`;
       row.querySelector(".tm-name").addEventListener("click", (ev) => ev.stopPropagation());
       row.querySelector(".tm-name").addEventListener("change", () => {
@@ -531,8 +669,9 @@
       row.querySelector(".tm-url").addEventListener("click", (ev) => ev.stopPropagation());
       row.querySelector(".tm-url").addEventListener("change", () => {
         const v = row.querySelector(".tm-url").value.trim();
-        if (validEngineUrl(v)) { e.url = v; saveState(); renderSelects(); renderEngineManager(); }
-        else { alert("That doesn't look like a valid http(s) URL."); row.querySelector(".tm-url").value = e.url; }
+        const norm = normalizeEngineUrl(v);
+        if (norm) { e.url = norm; saveState(); renderSelects(); renderEngineManager(); }
+        else { alert("That doesn't look like a valid URL. A bare domain like youtube.com works too."); row.querySelector(".tm-url").value = e.url; }
       });
       row.querySelector(".eng-default").addEventListener("click", (ev) => {
         ev.stopPropagation();
@@ -582,7 +721,17 @@
     });
   }
 
-  function fontFamilyOf(f) { return f.src ? f.label : f.family; }
+  function fontKeyClean(s) { return String(s).replace(/["\\]/g, ""); }
+  function fontFamilyOf(f) {
+    // Uploaded fonts: reference the @font-face family name (quoted so names
+    // with spaces are valid CSS). Named fonts keep their full family string.
+    if (f.src) return '"' + fontKeyClean(f.label) + '"';
+    return f.family;
+  }
+  function selectedFontCss() {
+    const f = allFonts().find((x) => x.id === state.font) || FONTS[0];
+    return fontFamilyOf(f) + ', "Segoe UI", system-ui, sans-serif';
+  }
 
   /* ---------- Pins & tabs ---------- */
   function currentTab() { return state.tabs[state.activeTab]; }
@@ -699,7 +848,10 @@
     });
     if (pinsManageTab >= state.tabs.length) pinsManageTab = Math.max(0, state.tabs.length - 1);
     sel.value = pinsManageTab;
-    sel.addEventListener("change", () => { pinsManageTab = +sel.value; renderPinsManage(); });
+    if (!sel.dataset.bound) {
+      sel.dataset.bound = "1";
+      sel.addEventListener("change", () => { pinsManageTab = +sel.value; renderPinsManage(); });
+    }
 
     const list = $("#pinsList");
     list.innerHTML = "";
@@ -825,6 +977,11 @@
     renderPinSegs();
     $("#pinBackdrop").classList.add("open");
     $("#pinModal").classList.add("open");
+    // Move focus into the modal so typing never leaks to the page behind it.
+    setTimeout(() => {
+      const target = editingPinIdx !== null ? $("#pinUrl") : $("#pinName");
+      if (target) target.focus();
+    }, 60);
   }
   function closePinModal() {
     $("#pinBackdrop").classList.remove("open");
@@ -836,8 +993,8 @@
     $$("#pinBgSeg button").forEach((b) => b.classList.toggle("active", b.dataset.bg === pinBgMode));
   }
   async function savePin() {
-    const url = $("#pinUrl").value.trim();
-    if (!url) { alert("Please enter a URL."); return; }
+    const url = normalizePinUrl($("#pinUrl").value);
+    if (!url) { alert("Please enter a valid link (e.g. youtube.com — https://www. is added automatically)."); return; }
     const name = $("#pinName").value.trim() || url;
     let icon = null;
     if (pinIconMode === "upload" && pinIconData) icon = pinIconData;
@@ -858,23 +1015,32 @@
   }
 
   /* ---------- Bookmarks import ---------- */
-  async function importBookmarks() {
-    if (!chrome.bookmarks) { await alert("Bookmarks permission not available."); return; }
-    chrome.bookmarks.getTree((tree) => {
-      const urls = [];
-      const walk = (nodes) => { for (const n of nodes) { if (n.url) urls.push(n); if (n.children) walk(n.children); } };
-      walk(tree);
-      const pins = currentPins();
-      const existing = new Set(pins.map((p) => p.url));
-      let added = 0;
-      for (const b of urls) {
-        if (pins.length >= 50) break;
-        if (existing.has(b.url)) continue;
-        pins.push({ name: b.title || b.url, url: b.url, icon: null, size: null, bg: null });
-        existing.add(b.url); added++;
+  function collectBookmarkUrls(nodes, out = []) {
+    for (const n of nodes) {
+      if (n.url) {
+        try { const p = new URL(n.url); if (p.protocol === "http:" || p.protocol === "https:") out.push(n); } catch (e) {}
       }
-      saveState(); renderPins();
-      alert(`Imported ${added} bookmark(s) into "${currentTab().name}".`);
+      if (n.children) collectBookmarkUrls(n.children, out);
+    }
+    return out;
+  }
+  function importBookmarks() {
+    return new Promise((resolve) => {
+      if (!chrome.bookmarks) { resolve(0); return; }
+      chrome.bookmarks.getTree((tree) => {
+        const urls = collectBookmarkUrls(tree);
+        const pins = currentPins();
+        const existing = new Set(pins.map((p) => p.url));
+        let added = 0;
+        for (const b of urls) {
+          if (pins.length >= 50) break;
+          if (existing.has(b.url)) continue;
+          pins.push({ name: b.title || b.url, url: b.url, icon: null, size: null, bg: null });
+          existing.add(b.url); added++;
+        }
+        saveState(); renderPins();
+        resolve(added);
+      });
     });
   }
 
@@ -886,61 +1052,56 @@
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 500);
   }
-  function bookmarksTree() {
-    return new Promise((resolve) => chrome.bookmarks.getTree(resolve));
-  }
-  function countUrls(nodes) {
-    let c = 0;
-    for (const n of nodes) { if (n.url) c++; if (n.children) c += countUrls(n.children); }
-    return c;
-  }
-  function deleteAllBookmarks() {
-    return new Promise((resolve) => {
-      chrome.bookmarks.getTree((tree) => {
-        const kids = ((tree[0] && tree[0].children) || []).slice();
-        let i = 0;
-        const next = () => { if (i >= kids.length) return resolve(); chrome.bookmarks.removeTree(kids[i++].id, next); };
-        next();
+
+  /* ---------- Todo widget ---------- */
+  function renderTodos() {
+    const list = $("#todoList");
+    if (!list) return;
+    list.innerHTML = "";
+    if (!state.todo.length) {
+      const empty = document.createElement("div");
+      empty.className = "todo-empty";
+      empty.textContent = "Nothing to do — add a task below.";
+      list.appendChild(empty);
+      return;
+    }
+    state.todo.forEach((t, idx) => {
+      const row = document.createElement("label");
+      row.className = "todo-row notebook-checkbox" + (t.text.length > 22 ? " long" : "");
+      row.style.fontFamily = selectedFontCss();
+      const cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.checked = !!t.done;
+      cb.addEventListener("change", () => { t.done = cb.checked; saveState(); renderTodos(); });
+      const mark = document.createElement("span");
+      mark.className = "checkmark";
+      const txt = document.createElement("span");
+      txt.className = "text";
+      txt.innerHTML = `<span class="text-content">${esc(t.text)}</span>` +
+        `<svg preserveAspectRatio="none" viewBox="0 0 400 20" class="cut-line"><path d="M0,10 H400"/></svg>`;
+      const del = document.createElement("button");
+      del.type = "button";
+      del.className = "todo-del";
+      del.textContent = "✕";
+      del.title = "Delete task";
+      del.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        state.todo.splice(idx, 1);
+        saveState(); renderTodos();
       });
+      row.append(cb, mark, txt, del);
+      list.appendChild(row);
     });
+    const ti = $("#todoInput");
+    if (ti) ti.style.fontFamily = selectedFontCss();
   }
-  function moveAllBookmarksToFolder() {
-    return new Promise((resolve) => {
-      chrome.bookmarks.getTree((tree) => {
-        const root = tree[0];
-        const kids = ((root && root.children) || []).slice();
-        const title = "Home Backup " + new Date().toISOString().slice(0, 10);
-        chrome.bookmarks.create({ parentId: root.id, title }, (folder) => {
-          let i = 0;
-          const next = () => {
-            while (i < kids.length && kids[i].id === folder.id) i++;
-            if (i >= kids.length) return resolve();
-            chrome.bookmarks.move(kids[i++].id, { parentId: folder.id }, next);
-          };
-          next();
-        });
-      });
-    });
-  }
-  async function importAllBookmarksBackup() {
-    if (!chrome.bookmarks) { await alert("Bookmarks permission not available."); return; }
-    try {
-      const tree = await bookmarksTree();
-      downloadJson("home-bookmarks-backup-" + new Date().toISOString().replace(/[:.]/g, "-") + ".json", tree);
-    } catch (e) { /* backup is best-effort */ }
-    let total = 0;
-    try { total = countUrls(await bookmarksTree()); } catch (e) {}
-    const act = state.bmCleanup;
-    const actText = act === "delete"
-      ? "DELETE ALL bookmarks"
-      : act === "move"
-        ? "move all bookmarks into a backup folder"
-        : "keep your bookmarks unchanged";
-    const ok = await confirm(`Import ${total} bookmark(s) into the current tab, then ${actText}? A backup file has been downloaded first.`, "Import all bookmarks");
-    if (!ok) return;
-    await importBookmarks();
-    if (act === "delete") { try { await deleteAllBookmarks(); } catch (e) {} }
-    else if (act === "move") { try { await moveAllBookmarksToFolder(); } catch (e) {} }
+
+  function addTodo(text) {
+    text = (text || "").trim();
+    if (!text) return;
+    state.todo.push({ id: "t" + Date.now(), text, done: false });
+    saveState(); renderTodos();
   }
 
   /* ---------- Focus timer ---------- */
@@ -990,6 +1151,157 @@
     const w = $("#focusWidget");
     w.style.display = state.focusEnabled ? "" : "none";
     if (!state.focusEnabled) { timer.running = false; stopTimerInterval(); }
+  }
+
+  /* ---------- Weather (weatherapi.com) ---------- */
+  const WEATHER_KEY = "1ea6f5b41ced479e85e221024260811";
+  function weatherUrl() {
+    const q = encodeURIComponent(state.weatherCity);
+    return "https://api.weatherapi.com/v1/forecast.json?key=" + WEATHER_KEY +
+      "&q=" + q + "&days=3&aqi=no&alerts=yes";
+  }
+  async function loadWeather(force) {
+    const main = $("#weatherMain");
+    const now = Date.now();
+    const cached = state.weatherCache;
+    const cacheKey = state.weatherCity.toLowerCase();
+    if (!force && cached && cached.key === cacheKey && now - cached.at < 30 * 60 * 1000) {
+      if (cached.data) renderWeather(cached.data);
+      return;
+    }
+    if (main) main.innerHTML = '<span class="setting-hint">Loading weather…</span>';
+    try {
+      let data = null;
+      let apiErr = null;
+      // 1) via background service worker (avoids page CORS)
+      if (chrome.runtime && chrome.runtime.sendMessage) {
+        data = await new Promise((resolve) => chrome.runtime.sendMessage({ type: "weather", url: weatherUrl() }, resolve));
+        if (data && data.error) apiErr = data.error.message || data.error;
+        if (!data) data = null;
+      }
+      // 2) fallback: direct fetch (extension pages can fetch with host permissions)
+      if (!data || apiErr) {
+        try {
+          const resp = await fetch(weatherUrl());
+          if (resp.ok) {
+            const d = await resp.json();
+            if (d && !d.error) { data = d; apiErr = null; }
+            else if (d && d.error) apiErr = d.error.message || apiErr;
+          } else if (!apiErr) apiErr = "HTTP " + resp.status;
+        } catch (e2) { if (!apiErr) apiErr = "network"; }
+      }
+      if (!data) throw new Error(apiErr || "no data");
+      state.weatherCache = { key: cacheKey, at: now, data };
+      saveState();
+      renderWeather(data);
+    } catch (e) {
+      const reason = (e && e.message) ? e.message : "check the city or your connection";
+      if (main) main.innerHTML = '<span class="setting-hint">Weather unavailable — ' + esc(reason) + '.</span>';
+    }
+  }
+  function renderWeather(data) {
+    const main = $("#weatherMain"), days = $("#weatherDays"), alertEl = $("#weatherAlert");
+    if (!main || !data.current || !data.forecast) return;
+    const cur = data.current, loc = data.location;
+    const day0 = data.forecast.forecastday[0];
+    const f = state.weatherUnits === "f";
+    const unit = f ? "°F" : "°C";
+    const tmp = f ? cur.temp_f : cur.temp_c;
+    const hi = day0 ? (f ? day0.day.maxtemp_f : day0.day.maxtemp_c) : tmp;
+    const lo = day0 ? (f ? day0.day.mintemp_f : day0.day.mintemp_c) : tmp;
+    main.innerHTML = `
+      <div class="w-loc">${esc(loc.name)}, ${esc(loc.country)}</div>
+      <div class="w-now"><span class="w-temp">${Math.round(tmp)}${unit}</span><span class="w-cond">${esc(cur.condition.text)}</span></div>
+      <div class="w-hilo">H: ${Math.round(hi)}${unit} · L: ${Math.round(lo)}${unit}</div>`;
+    const arr = data.forecast.forecastday;
+    const rain = arr.filter((d) => d.day.daily_chance_of_rain >= 50);
+    const snow = arr.filter((d) => d.day.daily_chance_of_snow >= 50);
+    let msg = "☀️ No rain expected in the next 3 days.";
+    if (rain.length) {
+      const strongest = rain.reduce((a, b) => a.day.daily_chance_of_rain > b.day.daily_chance_of_rain ? a : b);
+      msg = `🌧️ Rain expected — ${strongest.day.daily_chance_of_rain}% chance`;
+    } else if (snow.length) {
+      const strongest = snow.reduce((a, b) => a.day.daily_chance_of_snow > b.day.daily_chance_of_snow ? a : b);
+      msg = `❄️ Snow expected — ${strongest.day.daily_chance_of_snow}% chance`;
+    }
+    if (alertEl) alertEl.textContent = msg;
+  }
+
+  /* ---------- Daily quote (free public API) ---------- */
+  const QUOTE_FALLBACK = [
+    { q: "The best time to plant a tree was 20 years ago. The second best time is now.", a: "Chinese Proverb" },
+    { q: "In the middle of difficulty lies opportunity.", a: "Albert Einstein" },
+    { q: "It always seems impossible until it is done.", a: "Nelson Mandela" },
+    { q: "Believe you can and you're halfway there.", a: "Theodore Roosevelt" },
+    { q: "Happiness is not something ready made. It comes from your own actions.", a: "Dalai Lama" },
+  ];
+  async function loadQuote() {
+    const el = $("#quoteText");
+    if (!el) return;
+    try {
+      const r = await fetch("https://dummyjson.com/quotes/random");
+      if (r.ok) {
+        const j = await r.json();
+        if (j && j.quote) {
+          el.textContent = "“" + j.quote + "”";
+          $("#quoteAuthor").textContent = "— " + (j.author || "Unknown");
+          return;
+        }
+      }
+      throw new Error("http");
+    } catch (e) {
+      const pick = QUOTE_FALLBACK[Math.floor(Math.random() * QUOTE_FALLBACK.length)];
+      el.textContent = "“" + pick.q + "”";
+      $("#quoteAuthor").textContent = "— " + pick.a;
+    }
+  }
+
+  function updateSavedCountUI() {
+    const c = $("#savedCount"); if (c) c.textContent = state.savedQuotes.length;
+    const mc = $("#savedModalCount"); if (mc) mc.textContent = state.savedQuotes.length;
+  }
+  function currentQuoteText() {
+    const t = $("#quoteText");
+    return t ? t.textContent.replace(/^“|”$/g, "") : "";
+  }
+  function currentQuoteAuthor() {
+    const a = $("#quoteAuthor");
+    return a ? a.textContent.replace(/^—\s*/, "") : "";
+  }
+  function saveCurrentQuote() {
+    const q = currentQuoteText();
+    if (!q) { alert("No quote to save yet."); return; }
+    state.savedQuotes.push({ quote: q, author: currentQuoteAuthor(), at: new Date().toISOString() });
+    saveState(); updateSavedCountUI();
+  }
+  function copyCurrentQuote() {
+    const q = currentQuoteText();
+    if (!q) { alert("No quote to copy yet."); return; }
+    const txt = `"${q}"`;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(() => alert("Copied to clipboard ✔")).catch(() => {});
+    } else alert("Clipboard not available.");
+  }
+  function openSavedQuotes() {
+    const list = $("#savedList");
+    list.innerHTML = "";
+    if (!state.savedQuotes.length) list.innerHTML = '<div class="setting-hint">No saved quotes yet.</div>';
+    state.savedQuotes.forEach((sq, i) => {
+      const row = document.createElement("div");
+      row.className = "saved-row";
+      row.innerHTML = `<span class="s-q">“${esc(sq.quote)}”</span><button class="saved-del" title="Delete">✕</button>`;
+      row.querySelector(".saved-del").addEventListener("click", () => {
+        state.savedQuotes.splice(i, 1);
+        saveState(); updateSavedCountUI(); openSavedQuotes();
+      });
+      list.appendChild(row);
+    });
+    $("#savedBackdrop").classList.add("open");
+    $("#savedModal").classList.add("open");
+  }
+  function closeSavedQuotes() {
+    $("#savedBackdrop").classList.remove("open");
+    $("#savedModal").classList.remove("open");
   }
 
   /* ---------- Settings panel preview ---------- */
@@ -1058,6 +1370,9 @@
     dock: { label: "Tab dock" },
     focus: { label: "Focus timer" },
     particles: { label: "Particles" },
+    weather: { label: "Weather" },
+    quote: { label: "Quote" },
+    todo: { label: "Todo list" },
   };
   function currentWidget(id) {
     if (!state.widgets[id]) state.widgets[id] = { visible: true, opacity: 100 };
@@ -1069,6 +1384,10 @@
       const w = currentWidget(id);
       el.style.display = w.visible ? "" : "none";
       el.style.opacity = w.opacity / 100;
+      const bgA = (w.bg == null ? 55 : w.bg) / 100;
+      const card = el.querySelector(".widget");
+      if (card) card.style.background = "rgba(13,18,34," + bgA + ")";
+      else if (id === "weather") el.style.background = "rgba(13,18,34," + bgA + ")";
     });
     const pw = state.widgets.particles;
     if (pw.visible !== state.particles) {
@@ -1076,6 +1395,13 @@
       spawnParticles();
     }
     syncParticlesUI();
+    const fw = $("#focusWidget");
+    if (fw) fw.style.display = (state.widgets.focus.visible && state.focusEnabled) ? "" : "none";
+    const weh = $("#weatherWidget");
+    if (weh) weh.style.display = (state.widgets.weather.visible && state.weatherEnabled) ? "" : "none";
+    const qw = $("#quoteWidget");
+    if (qw) qw.style.display = (state.widgets.quote.visible && state.quoteEnabled) ? "" : "none";
+    applyWeatherPos();
   }
   function syncParticlesUI() {
     if (!$("#particlesSeg")) return;
@@ -1111,16 +1437,22 @@
       saveState(); applyWidgets();
     });
 
+    const bgRow = document.createElement("label");
+    bgRow.className = "wm-row";
+    bgRow.innerHTML = `<span>Background</span><input type="range" min="0" max="100" step="5" value="${w.bg == null ? 55 : w.bg}" />`;
+    const bgr = bgRow.querySelector("input");
+    bgr.addEventListener("input", () => { w.bg = +bgr.value; saveState(); applyWidgets(); });
+
     const reset = document.createElement("button");
     reset.className = "pill-btn ghost full";
     reset.textContent = "Reset";
     reset.style.marginTop = "10px";
     reset.addEventListener("click", () => {
-      state.widgets[id] = { visible: true, opacity: 100 };
+      state.widgets[id] = { visible: true, opacity: 100, bg: 55 };
       saveState(); applyWidgets(); closeWidgetMenu();
     });
 
-    menu.append(title, visRow, opRow, reset);
+    menu.append(title, visRow, opRow, bgRow, reset);
 
     const mw = 230, mh = menu.offsetHeight || 190;
     const left = Math.min(Math.max(8, x), window.innerWidth - mw - 8);
@@ -1143,7 +1475,20 @@
     $("#bgTypeSelect").value = state.customBg.type || "static";
     $$("#searchAlign button").forEach((b) => b.classList.toggle("active", b.dataset.align === state.searchAlign));
     $$("#singleHomeSeg button").forEach((b) => b.classList.toggle("active", (b.dataset.sh === "on") === state.singleHome));
-    $("#bmCleanupSel").value = state.bmCleanup;
+    $$("#fontEverywhereSeg button").forEach((b) => b.classList.toggle("active", (b.dataset.fe === "on") === !!state.fontEverywhere));
+    $$("#searchTargetSeg button").forEach((b) => b.classList.toggle("active", b.dataset.t === state.searchTarget));
+    $$("#weatherSeg button").forEach((b) => b.classList.toggle("active", (b.dataset.w === "on") === !!state.weatherEnabled));
+    $$("#weatherUnitsSeg button").forEach((b) => b.classList.toggle("active", b.dataset.u === state.weatherUnits));
+    $("#weatherCity").value = state.weatherCity;
+    $$("#quoteSeg button").forEach((b) => b.classList.toggle("active", (b.dataset.q === "on") === !!state.quoteEnabled));
+    $$("#todoSeg button").forEach((b) => b.classList.toggle("active", (b.dataset.todo === "on") === !!state.widgets.todo.visible));
+    $("#todoXSlider").value = state.todoX;
+    $("#todoYSlider").value = state.todoY;
+    $("#compactSlider").value = state.compact;
+    $("#weatherXSlider").value = state.weatherX;
+    $("#weatherYSlider").value = state.weatherY;
+    $("#weatherWSlider").value = state.weatherW;
+    $("#weatherHSlider").value = state.weatherH;
 
     $("#focusDur").value = state.focusTimes.focus;
     $("#breakDur").value = state.focusTimes.br;
@@ -1156,12 +1501,17 @@
     $("#bgTint").value = state.sliders.tint;
     $("#searchWidth").value = state.searchWidth;
     $("#searchTrans").value = state.searchTrans;
+    $("#searchPlaceholder").value = state.searchPlaceholder || "Search…";
+    $("#pinColsSlider").value = state.pinCols;
+    $$("#searchTextAlignSeg button").forEach((b) => b.classList.toggle("active", b.dataset.align === state.searchTextAlign));
 
     applyClockStyle();
     applyFont();
     applySearchStyle();
     renderGearPos();
     applyPanelPlacement();
+    applyCompact();
+    applyWidgets();
   }
 
   function openSettings() { renderSettings(); applyPanelPlacement(); settingsOpenedAt = Date.now(); $("#settingsPanel").classList.add("open"); $("#settingsBackdrop").classList.add("open"); }
@@ -1182,9 +1532,156 @@
     });
   }
 
+  function applyCompact() {
+    document.documentElement.style.setProperty("--compact", (state.compact / 100).toFixed(3));
+  }
+  function applyWeatherPos() {
+    const w = $("#weatherWidget");
+    if (!w || window.innerWidth <= 760) return;
+    w.style.width = state.weatherW + "px";
+    w.style.height = state.weatherH + "px";
+    const bw = state.weatherW;
+    const bh = state.weatherH;
+    const x = Math.round((state.weatherX / 100) * Math.max(0, window.innerWidth - bw));
+    const y = Math.round((state.weatherY / 100) * Math.max(0, window.innerHeight - bh));
+    w.style.left = x + "px";
+    w.style.top = y + "px";
+  }
+
+  function applyTodoPos() {
+    const w = $("#todoWidget");
+    if (!w || window.innerWidth <= 760) return;
+    const bw = w.offsetWidth || 300;
+    const bh = w.offsetHeight || 260;
+    const x = Math.round((state.todoX / 100) * Math.max(0, window.innerWidth - bw));
+    const y = Math.round((state.todoY / 100) * Math.max(0, window.innerHeight - bh));
+    w.style.left = x + "px";
+    w.style.top = y + "px";
+  }
+
+  /* ---------- Custom dropdowns (arrow keys auto-apply) ---------- */
+  const ENHANCE_SELECTS = ["clockStyleSelect", "searchStyleSelect", "fontSelect", "engineSelect", "clockFormatSelect", "dateFormatSelect", "bgTypeSelect", "gearPosSelect"];
+  function enhanceSelect(id) {
+    const sel = document.getElementById(id);
+    if (!sel || sel.dataset.enhanced) return;
+    sel.dataset.enhanced = "1";
+    const wrap = document.createElement("div");
+    wrap.className = "cd-wrap";
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "cd-btn";
+    const menu = document.createElement("div");
+    menu.className = "cd-menu";
+    sel.parentNode.insertBefore(wrap, sel);
+    wrap.appendChild(btn);
+    wrap.appendChild(menu);
+    wrap.appendChild(sel);
+    sel.style.display = "none";
+
+    const closeMenu = () => menu.classList.remove("open");
+    const sync = () => {
+      const i = sel.selectedIndex < 0 ? 0 : sel.selectedIndex;
+      btn.textContent = (sel.options[i] && sel.options[i].textContent) || "";
+      menu.innerHTML = "";
+      Array.from(sel.options).forEach((o, idx) => {
+        const it = document.createElement("div");
+        it.className = "cd-item" + (idx === sel.selectedIndex ? " active" : "");
+        it.textContent = o.textContent;
+        it.addEventListener("click", () => {
+          sel.selectedIndex = idx;
+          sel.dispatchEvent(new Event("change", { bubbles: true }));
+          closeMenu();
+        });
+        menu.appendChild(it);
+      });
+    };
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (menu.classList.toggle("open")) sync();
+    });
+    btn.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+        e.preventDefault();
+        const len = sel.options.length;
+        if (!len) return;
+        const cur = sel.selectedIndex < 0 ? 0 : sel.selectedIndex;
+        sel.selectedIndex = (cur + (e.key === "ArrowUp" ? -1 : 1) + len) % len;
+        sel.dispatchEvent(new Event("change", { bubbles: true }));
+        sync();
+      } else if (e.key === "Escape") closeMenu();
+      else if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        if (menu.classList.toggle("open")) sync();
+      }
+    });
+    document.addEventListener("click", (e) => { if (!wrap.contains(e.target)) closeMenu(); });
+    sel.addEventListener("change", sync);
+    sel._cdSync = sync;
+    sync();
+  }
+  function refreshEnhancedSelects() { ENHANCE_SELECTS.forEach(enhanceSelect); }
+  function updateEnhancedSelects() {
+    document.querySelectorAll("select[data-enhanced]").forEach((s) => { if (s._cdSync) s._cdSync(); });
+  }
+
+  /* ---------- Settings panel: collapsible sections ---------- */
+  // Converts each .setting-group into a .setting-section with a header that
+  // collapses/expands its body (keeps the panel minimal while all features stay
+  // one click away). Section titles are derived from each group's first label.
+  // Behavior: only ONE section is open at a time — opening another
+  // auto-closes the previously open one; clicking the open header closes it.
+  function buildSettingsSections() {
+    const panel = $("#settingsPanel");
+    if (!panel || panel.dataset.sections) return;
+    panel.dataset.sections = "1";
+    [...panel.querySelectorAll(":scope > .setting-group")].forEach((group, i) => {
+      const titleEl = group.querySelector(".small-head") || group.querySelector(".setting-label:not(.inline)");
+      const title = (titleEl && titleEl.textContent.trim()) || "Section";
+
+      // Only the first section is open by default; everything else is closed.
+      const open = i === 0;
+      const sec = document.createElement("section");
+      sec.className = "setting-section" + (open ? " open" : "");
+
+      const head = document.createElement("button");
+      head.type = "button";
+      head.className = "setting-sec-head";
+      head.setAttribute("aria-expanded", String(open));
+      head.title = "Click to collapse / expand";
+      head.innerHTML = `<span class="sec-title">${esc(title)}</span>` +
+        `<svg class="sec-caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>`;
+      head.addEventListener("click", () => {
+        const wasOpen = sec.classList.contains("open");
+        // auto-close the previously open section
+        sec.parentNode.querySelectorAll(".setting-section.open").forEach((o) => {
+          if (o !== sec) {
+            o.classList.remove("open");
+            const oh = o.querySelector(".setting-sec-head");
+            if (oh) oh.setAttribute("aria-expanded", "false");
+          }
+        });
+        const nowOpen = !wasOpen;
+        sec.classList.toggle("open", nowOpen);
+        head.setAttribute("aria-expanded", String(nowOpen));
+      });
+
+      const body = document.createElement("div");
+      body.className = "setting-sec-body";
+      const inner = document.createElement("div");
+      inner.className = "setting-sec-inner";
+      while (group.firstChild) inner.appendChild(group.firstChild);
+      if (titleEl && inner.contains(titleEl)) titleEl.remove(); // header replaces the title
+      body.appendChild(inner);
+
+      sec.append(head, body);
+      group.replaceWith(sec);
+    });
+  }
+
   /* ---------- Init ---------- */
   function init() {
     loadStateSync();
+    buildSettingsSections();
     const apply = () => {
       if (chrome.storage && chrome.storage.local) {
         chrome.storage.local.get({ singleHome: true, home_state: null }, (r) => {
@@ -1202,6 +1699,7 @@
     applyVisuals();
     renderWallpaperGrid();
     renderSelects();
+    refreshEnhancedSelects();
     renderDock();
     renderPins();
     renderTimerModes();
@@ -1209,9 +1707,16 @@
     applyClockStyle();
     applyFont();
     applySearchStyle();
+    applyPinCols();
     applyPanelPlacement();
     spawnParticles();
     applyWidgets();
+    renderTodos();
+    applyTodoPos();
+    if (state.weatherEnabled && state.widgets.weather.visible) loadWeather(false);
+    if (state.quoteEnabled && state.widgets.quote.visible) loadQuote();
+    applyCompact();
+    updateSavedCountUI();
 
     setInterval(tickClock, 1000);
     tickClock();
@@ -1267,9 +1772,10 @@
     // engine manager — add
     $("#engAdd").addEventListener("click", () => {
       const name = $("#engNewName").value.trim();
-      const url = $("#engNewUrl").value.trim();
-      if (!name || !url) { alert("Enter both a name and a search URL."); return; }
-      if (!validEngineUrl(url)) { alert("That doesn't look like a valid http(s) URL."); return; }
+      const raw = $("#engNewUrl").value.trim();
+      const url = normalizeEngineUrl(raw);
+      if (!name || !raw) { alert("Enter both a name and a search URL."); return; }
+      if (!url) { alert("That doesn't look like a valid URL. A bare domain like youtube.com works too."); return; }
       if (state.engines.length >= MAX_ENGINES) { alert(`You can have at most ${MAX_ENGINES} engines.`); return; }
       if (state.engines.some((e) => e.url.toLowerCase() === url.toLowerCase())) { alert("That engine already exists."); return; }
       state.engines.push({ id: engineId(), name, url });
@@ -1299,7 +1805,7 @@
       state.gearY = v[1] === "t" ? 0 : 100;
       saveState(); renderGearPos();
     });
-    window.addEventListener("resize", applyGearPos);
+    window.addEventListener("resize", () => { applyGearPos(); applyWeatherPos(); applyTodoPos(); });
 
     // config import / export
     $("#exportCfg").addEventListener("click", () => {
@@ -1337,6 +1843,19 @@
       };
       reader.readAsText(f);
     });
+    // Arrow keys cycle any focused select to switch styles instantly (capture phase)
+    document.addEventListener("keydown", (e) => {
+      const sel = e.target && e.target.tagName === "SELECT" ? e.target : null;
+      if (!sel || (e.key !== "ArrowDown" && e.key !== "ArrowUp")) return;
+      e.preventDefault();
+      const len = sel.options.length;
+      if (!len) return;
+      const cur = sel.selectedIndex < 0 ? 0 : sel.selectedIndex;
+      sel.selectedIndex = (cur + (e.key === "ArrowUp" ? -1 : 1) + len) % len;
+      sel.dispatchEvent(new Event("change", { bubbles: true }));
+      sel.focus();
+    }, true);
+
     $("#clockFormatSelect").addEventListener("change", (e) => { state.clockFormat = e.target.value; saveState(); tickClock(); });
     $("#dateFormatSelect").addEventListener("change", (e) => { state.dateFormat = e.target.value; saveState(); tickClock(); });
     $("#clockStyleSelect").addEventListener("change", (e) => { state.clockStyle = e.target.value; saveState(); renderSettings(); });
@@ -1377,11 +1896,49 @@
     $$("#particlesSeg button").forEach((b) => b.addEventListener("click", () => { state.particles = b.dataset.particles === "on"; saveState(); renderSettings(); spawnParticles(); }));
     $$("#focusSeg button").forEach((b) => b.addEventListener("click", () => { state.focusEnabled = b.dataset.focus === "on"; saveState(); renderSettings(); applyFocusVisibility(); }));
     $$("#searchAlign button").forEach((b) => b.addEventListener("click", () => { state.searchAlign = b.dataset.align; saveState(); renderSettings(); }));
+    $$("#fontEverywhereSeg button").forEach((b) => b.addEventListener("click", () => {
+      state.fontEverywhere = b.dataset.fe === "on";
+      saveState(); renderSettings(); syncFontOverride();
+    }));
     $$("#singleHomeSeg button").forEach((b) => b.addEventListener("click", () => {
       state.singleHome = b.dataset.sh === "on";
       chrome.storage.local.set({ singleHome: state.singleHome });
       saveState(); renderSettings();
     }));
+    $$("#searchTargetSeg button").forEach((b) => b.addEventListener("click", () => { state.searchTarget = b.dataset.t; saveState(); renderSettings(); }));
+    $$("#weatherSeg button").forEach((b) => b.addEventListener("click", () => {
+      state.weatherEnabled = b.dataset.w === "on";
+      saveState(); renderSettings();
+      if (state.weatherEnabled) loadWeather(true);
+    }));
+    $("#weatherSave").addEventListener("click", () => {
+      const c = $("#weatherCity").value.trim();
+      if (!c) return;
+      state.weatherCity = c;
+      state.weatherCache = null;
+      saveState(); renderSettings(); loadWeather(true);
+    });
+    $("#weatherCity").addEventListener("keydown", (e) => { if (e.key === "Enter") $("#weatherSave").click(); });
+    $$("#weatherUnitsSeg button").forEach((b) => b.addEventListener("click", () => { state.weatherUnits = b.dataset.u; saveState(); renderSettings(); loadWeather(true); }));
+    const wr = $("#weatherRefresh");
+    if (wr) wr.addEventListener("click", () => loadWeather(true));
+    $$("#quoteSeg button").forEach((b) => b.addEventListener("click", () => { state.quoteEnabled = b.dataset.q === "on"; saveState(); renderSettings(); if (state.quoteEnabled) loadQuote(); }));
+    $$("#todoSeg button").forEach((b) => b.addEventListener("click", () => { state.widgets.todo.visible = b.dataset.todo === "on"; saveState(); renderSettings(); applyWidgets(); }));
+    $("#todoXSlider").addEventListener("input", () => { state.todoX = +$("#todoXSlider").value; saveState(); applyTodoPos(); });
+    $("#todoYSlider").addEventListener("input", () => { state.todoY = +$("#todoYSlider").value; saveState(); applyTodoPos(); });
+    $("#quoteRefresh").addEventListener("click", loadQuote);
+    $("#quoteNext").addEventListener("click", loadQuote);
+    $("#compactSlider").addEventListener("input", () => { state.compact = +$("#compactSlider").value; saveState(); applyCompact(); });
+    $("#weatherXSlider").addEventListener("input", () => { state.weatherX = +$("#weatherXSlider").value; saveState(); applyWeatherPos(); });
+    $("#weatherYSlider").addEventListener("input", () => { state.weatherY = +$("#weatherYSlider").value; saveState(); applyWeatherPos(); });
+    $("#weatherWSlider").addEventListener("input", () => { state.weatherW = +$("#weatherWSlider").value; saveState(); applyWeatherPos(); });
+    $("#weatherHSlider").addEventListener("input", () => { state.weatherH = +$("#weatherHSlider").value; saveState(); applyWeatherPos(); });
+    $("#quoteSave").addEventListener("click", saveCurrentQuote);
+    $("#quoteCopy").addEventListener("click", copyCurrentQuote);
+    $("#quoteSavedList").addEventListener("click", openSavedQuotes);
+    $("#savedClose").addEventListener("click", closeSavedQuotes);
+    $("#savedBackdrop").addEventListener("click", closeSavedQuotes);
+    $("#savedDownload").addEventListener("click", () => downloadJson("home-saved-quotes.json", state.savedQuotes));
 
     // focus durations
     $("#focusDur").addEventListener("change", (e) => { state.focusTimes.focus = clamp(1, 180, +e.target.value || 25); saveState(); renderSettings(); });
@@ -1433,11 +1990,27 @@
     });
     $("#searchWidth").addEventListener("input", (e) => { state.searchWidth = +e.target.value; applySearchStyle(); saveState(); });
     $("#searchTrans").addEventListener("input", (e) => { state.searchTrans = +e.target.value; applySearchStyle(); saveState(); });
+    $("#searchPlaceholder").addEventListener("change", (e) => {
+      state.searchPlaceholder = (e.target.value || "").trim() || "Search…";
+      e.target.value = state.searchPlaceholder;
+      saveState(); applySearchStyle();
+    });
+
+    // pin tile width
+    $("#pinColsSlider").addEventListener("input", (e) => { state.pinCols = +e.target.value; applyPinCols(); saveState(); });
+
+    // search typed-text alignment
+    $$("#searchTextAlignSeg button").forEach((b) => b.addEventListener("click", () => { state.searchTextAlign = b.dataset.align; saveState(); renderSettings(); }));
+
+    // todo widget
+    $("#todoAddBtn").addEventListener("click", () => { addTodo($("#todoInput").value); $("#todoInput").value = ""; });
+    $("#todoInput").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); $("#todoAddBtn").click(); } });
 
     // bookmarks
-    $("#importBm").addEventListener("click", importBookmarks);
-    $("#bmCleanupSel").addEventListener("change", (e) => { state.bmCleanup = e.target.value; saveState(); });
-    $("#importAllBm").addEventListener("click", importAllBookmarksBackup);
+    $("#importBm").addEventListener("click", async () => {
+      const added = await importBookmarks();
+      await alert(`Imported ${added} bookmark(s) into "${currentTab().name}".`);
+    });
 
     // pin modal
     $("#pinClose").addEventListener("click", closePinModal);
@@ -1470,25 +2043,26 @@
 
     // keyboard
     document.addEventListener("keydown", (e) => {
-      if (e.key === "/" && document.activeElement !== $("#searchInput")) { e.preventDefault(); $("#searchInput").focus(); }
-      if (e.key === "Escape") { closeSettings(); closePinModal(); closeManagePage(); closeWidgetMenu(); }
+      if (e.key === "/") {
+        const ae = document.activeElement;
+        const inField = ae && ae.closest("input, textarea, select, [contenteditable]");
+        const modalOpen = $("#pinModal").classList.contains("open") ||
+          $("#dialogBox").classList.contains("open") ||
+          $("#managePage").classList.contains("open");
+        if (!inField && !modalOpen) { e.preventDefault(); $("#searchInput").focus(); }
+      }
+      if (e.key === "Escape") { closeSettings(); closePinModal(); closeManagePage(); closeWidgetMenu(); closeSavedQuotes(); }
       if (e.ctrlKey && e.key === "n") { e.preventDefault(); openPinModal(); }
       if (e.ctrlKey && e.key === "t") { e.preventDefault(); addTab("New tab"); }
       if (e.ctrlKey && e.key === ",") { e.preventDefault(); const p = $("#settingsPanel"); if (p.classList.contains("open")) closeSettings(); else openSettings(); }
     });
 
-    // one-time onboarding: offer to import all bookmarks + backup
+    // one-time onboarding: auto-import bookmarks and notify
     if (!state.onboarded) {
       setTimeout(async () => {
-        const choice = await dialog({
-          title: "Welcome to Home",
-          msg: "Would you like to import all your browser bookmarks now (with an automatic backup file) and clean them up? You can also do this later from Settings → Bookmarks.",
-          buttons: [
-            { label: "Import all + backup", value: "import", primary: true },
-            { label: "Skip", value: "skip", cancel: true },
-          ],
-        });
-        if (choice === "import") importAllBookmarksBackup();
+        let added = 0;
+        try { added = await importBookmarks(); } catch (e) {}
+        await alert(`Welcome to Home! Imported ${added} bookmark(s) into "${currentTab().name}" — you can re-import anytime from Settings → Bookmarks.`);
         state.onboarded = true;
         saveState();
       }, 600);

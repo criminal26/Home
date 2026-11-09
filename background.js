@@ -4,7 +4,21 @@ chrome.runtime.onInstalled.addListener(() => {});
 
 // Clicking the toolbar icon reloads the extension.
 chrome.action.onClicked.addListener(() => {
-  chrome.runtime.reload();
+  // Open Home in a new tab, then reload the extension (keeps it enabled).
+  chrome.tabs.create({ url: chrome.runtime.getURL("index.html") }, () => {
+    chrome.runtime.reload();
+  });
+});
+
+// Weather fetch from the service worker (avoids page CORS restrictions).
+chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+  if (msg && msg.type === "weather" && msg.url) {
+    fetch(msg.url)
+      .then((r) => r.json())
+      .then((d) => sendResponse(d))
+      .catch(() => sendResponse({ error: "network" }));
+    return true; // keep channel open for async response
+  }
 });
 
 // Single-home-window behavior: if a new tab opens while a Home tab already
